@@ -17,4 +17,8 @@ public class Square {
 	public Piece getPiece(){
 		return p;
 	}
+
+	public void removePiece(){
+		p = null;
+	}
 }

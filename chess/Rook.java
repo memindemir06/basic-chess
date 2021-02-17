@@ -10,7 +10,7 @@ public class Rook extends Piece{
         setSymbol("♜");
         break;
     }
-    p.colour = p;
+    colour = p;
   }
   public boolean isLegitMove(int x1, int y1, int x2, int y2){
     //  Check if Rook moves horizantally or vertically
@@ -19,7 +19,7 @@ public class Rook extends Piece{
     }
     // Check if there is a move at all
     else if(x1 == x2 && y1 == y2){
-      return false
+      return false;
     }
     else return true;
   }

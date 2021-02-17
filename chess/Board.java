@@ -76,6 +76,13 @@ public class Board {
 
 	//This method requires your input
 	public static boolean movePiece(int i0, int j0, int i1, int j1, Piece p){
+		if (board[i1][j1].hasPiece() && (board[i1][j1].getPiece().getSymbol() == "♔" || board[i1][j1].getPiece().getSymbol() == "♚")) {
+			setPiece(i1,j1,p);
+			board[i0][j0].removePiece();
+			return true;
+		}
+		setPiece(i1,j1,p);
+		board[i0][j0].removePiece();
 		return false;
 	}
 
