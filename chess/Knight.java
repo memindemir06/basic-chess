@@ -14,6 +14,10 @@ public class Knight extends Piece {
   }
 
   public boolean isLegitMove(int x1, int y1, int x2, int y2){
+    // Check if there is a piece with the same colour at the destination
+		if (Board.hasPiece(x2,y2) && Board.getPiece(x2,y2).getColour() == getColour()) {
+			return false;
+		}
     // List of the movements that Knight can make
     int legitMoves[][] = {
       {1,2},
