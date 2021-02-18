@@ -13,6 +13,7 @@ public class Pawn extends Piece{
 		colour = p;
 	}
 	public boolean isLegitMove(int i0, int j0, int i1, int j1){
+		System.out.println("sasd");
 		boolean isAtStartPos = false;
 		PieceColour c = getColour();
 		// Check if there is a piece with the same colour at the destination
@@ -38,6 +39,7 @@ public class Pawn extends Piece{
 			else return false;
 		}
 		if (c == c.WHITE) {
+			System.out.println("2");
 			if (isAtStartPos && i0 - i1 == 2 && !Board.hasPiece(i1+1,j1) && !Board.hasPiece(i1,j1)) return true;
 			else if (i0 - i1 == 1 && !Board.hasPiece(i1,j1)) return true;
 			else return false;
