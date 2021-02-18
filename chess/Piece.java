@@ -17,7 +17,7 @@ public class Piece {
 		return colour;
 	}
 
-	public boolean isLegitMove(int x1, int y1, int x2, int y2){
+	public boolean isLegitMove(int i0, int j0, int i1, int j1){
 		return false;
 	}
 }

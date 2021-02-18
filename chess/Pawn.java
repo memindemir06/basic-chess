@@ -12,26 +12,37 @@ public class Pawn extends Piece{
     }
 		colour = p;
 	}
-	public boolean isLegitMove(int x1, int y1, int x2, int y2){
+	public boolean isLegitMove(int i0, int j0, int i1, int j1){
 		boolean isAtStartPos = false;
-		boolean checkEnemy = false;
-		PieceColour cl = getColour();
-		switch (cl) {
-			case WHITE:
-				if (y1 == 7) {
-					isAtStartPos = true;
-				}
-				break;
-			case BLACK:
-				if (y1 == 1) {
-					isAtStartPos = true;
-				}
-				break;
+		PieceColour c = getColour();
+		// Check if there is a piece with the same colour at the destination
+		if (Board.hasPiece(i1,j1) && Board.getPiece(i1,j1).getColour() == getColour()) {
+			return false;
+		}
+		// Check if Pawn moves more than one square horizantally
+		if (Math.abs(j0-j1) > 1) return false;
+		// Check if Pawn captures a piece
+		if (Math.abs(j0-j1) == 1){
+			if ((c == c.BLACK && i1-i0 == 1) || (c == c.WHITE && i0-i1 == 1 )){
+				if (Board.hasPiece(i1,j1) && Board.getPiece(i1,j1).getColour() != getColour()) return true;
+				return false;
+			}
+			return false;
 		}
 
-		if (isAtStartPos && x1 == x2) {
-			return true;
+		// Check if Pawn has moved before
+		if ((c == c.BLACK && i0 == 1) || (c == c.WHITE && i0 == 6)) isAtStartPos = true;
+		if (c == c.BLACK) {
+			if (isAtStartPos && i1 - i0 == 2 && !Board.hasPiece(i1-1,j1) && !Board.hasPiece(i1,j1)) return true;
+			else if (i1 - i0 == 1 && !Board.hasPiece(i1,j1)) return true;
+			else return false;
 		}
+		if (c == c.WHITE) {
+			if (isAtStartPos && i0 - i1 == 2 && !Board.hasPiece(i1+1,j1) && !Board.hasPiece(i1,j1)) return true;
+			else if (i0 - i1 == 1 && !Board.hasPiece(i1,j1)) return true;
+			else return false;
+		}
+
 		return false;
 	}
 }

@@ -13,21 +13,21 @@ public class King extends Piece{
 		colour = p;
 	}
 
-	public boolean isLegitMove(int x1, int y1, int x2, int y2){
+	public boolean isLegitMove(int i0, int j0, int i1, int j1){
 		// Check if there is a piece with the same colour at the destination
-		if (Board.hasPiece(x2,y2) && Board.getPiece(x2,y2).getColour() == getColour()) {
+		if (Board.hasPiece(i1,j1) && Board.getPiece(i1,j1).getColour() == getColour()) {
 			return false;
 		}
 		// Check if King moved one square horizantally
-		if (Math.abs(x1-x2) == 1 && y1 == y2) {
+		if (Math.abs(i0-i1) == 1 && j0 == j1) {
 			return true;
 		}
 		// Check if King moved one square vertically
-		else if (Math.abs(y1-y2) == 1 && x1 == x2) {
+		else if (Math.abs(j0-j1) == 1 && i0 == i1) {
 			return true;
 		}
 		// Check if King moved one square diagonally
-		else if (Math.abs(x1-x2) == 1 && Math.abs(y1-y2) == 1) {
+		else if (Math.abs(i0-i1) == 1 && Math.abs(j0-j1) == 1) {
 			return true;
 		}
 		else return false;
