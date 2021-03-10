@@ -7,13 +7,13 @@ public class Game {
 
 	//This method requires your input
 	public static void play(){
-		String whiteMove = "------ Whites Move ------";
-		String blackMove = "------ Blacks Move ------";
+		String whiteMove = "\n------ Whites Move ------";
+		String blackMove = "\n------ Blacks Move ------";
 		int turnCheck = 1;		// If 1 -> Whites move, If -1 -> Blacks move
 		boolean terminateCheck = false; // variable to check if the game is terminated
-		boolean checkOrigin = false;
+		boolean checkOrigin = false;		// variable to check origin coordinate's validity further
 		CheckInput c = new CheckInput();
-		//PieceColour p;
+
 		while (!gameEnd){
 			// PRINT WHICH COLOUR HAS THE TURN
 			if (turnCheck == 1) System.out.println(whiteMove);
@@ -25,17 +25,20 @@ public class Game {
 			int row0 = 0;
 			int col0 = 0;
 			do {
+				checkOrigin = false;
 				origin = keyboardConsole.readLine("> Enter origin: ");
 				if (origin.equals("END")) break;
 				if (c.checkCoordinateValidity(origin)){
 					row0 = Integer.parseInt(String.valueOf(origin.charAt(0))) - 1;
 					col0 = Integer.parseInt(String.valueOf((char) (origin.charAt(1) - 49)));
 					if (Board.hasPiece(row0,col0)) {
+						System.out.println(turnCheck);
+						System.out.println(Board.getPiece(row0,col0).getColour());
 						if (turnCheck == 1 && Board.getPiece(row0,col0).getColour() == PieceColour.WHITE) checkOrigin = true;
-						if (turnCheck == 0 && Board.getPiece(row0,col0).getColour() == PieceColour.BLACK) checkOrigin = true;
+						if (turnCheck == -1 && Board.getPiece(row0,col0).getColour() == PieceColour.BLACK) {checkOrigin = true;}
 					}
 				}
-			} while (!checkOrigin || row0 == 0 || col0 == 0);
+			} while (!checkOrigin);
 
 			if (origin.equals("END")) {
 				gameEnd = true;
@@ -71,8 +74,8 @@ public class Game {
 			System.out.println("You quit the game!");
 		}
 		else {
-			if (turnCheck == 1) System.out.println("------ Blacks Won UwU ------");
-			else System.out.println("------ Whites Won UwU ------");
+			if (turnCheck == 1) System.out.println("\n------ Blacks Won UwU ------");
+			else System.out.println("\n------ Whites Won UwU ------");
 		}
 	}
 

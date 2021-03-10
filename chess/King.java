@@ -12,7 +12,7 @@ public class King extends Piece{
     }
 		colour = p;
 	}
-
+	@Override
 	public boolean isLegitMove(int i0, int j0, int i1, int j1){
 		// Check if there is a piece with the same colour at the destination
 		if (Board.hasPiece(i1,j1) && Board.getPiece(i1,j1).getColour() == getColour()) {
