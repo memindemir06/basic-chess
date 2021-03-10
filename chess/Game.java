@@ -32,8 +32,6 @@ public class Game {
 					row0 = Integer.parseInt(String.valueOf(origin.charAt(0))) - 1;
 					col0 = Integer.parseInt(String.valueOf((char) (origin.charAt(1) - 49)));
 					if (Board.hasPiece(row0,col0)) {
-						System.out.println(turnCheck);
-						System.out.println(Board.getPiece(row0,col0).getColour());
 						if (turnCheck == 1 && Board.getPiece(row0,col0).getColour() == PieceColour.WHITE) checkOrigin = true;
 						if (turnCheck == -1 && Board.getPiece(row0,col0).getColour() == PieceColour.BLACK) {checkOrigin = true;}
 					}
