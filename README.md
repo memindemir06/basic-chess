@@ -1,5 +1,35 @@
-This is the base repository to start with the coursework. Please notice that.
 
-* The instructions and manual can be found in Blackboard [under Assessment](https://online.manchester.ac.uk/webapps/blackboard/content/listContentEditable.jsp?content_id=_12135205_1&course_id=_62535_1&mode=reset).
-* The submission deadline is on March 12 at 6PM (Friday of week 5). Use the *comp16412-coursework1* tag to submit in GitLab.
-* Use the [coursework forum](https://online.manchester.ac.uk/webapps/blackboard/content/launchLink.jsp?course_id=_62535_1&content_id=_12348309_1&mode=cpview) to ask any question. Make sure you have carefully read the manual.
+## Baic Chess Game
+
+A command line chess game implemented in Java using object-oriented programming and tested with junit
+
+## Requirements
+- Java 11
+
+## Commands:
+
+- Movement command: Each movement command must contain two characters that convey a speciﬁc coordinate of the chess board. The ﬁrst one is a number from 1 to 8 (corresponding to a i coordinate in a matrix), while the second is a character from a to h (corresponding to a j coordinate in a matrix).
+
+## Ending the game:
+type END .
+
+## Running
+
+You should be able to run the current codebase by
+
+1. In the coursework1 folder compile the given classes: javac chess/\*.java .
+
+2. Run the game: java chess/Game
+
+## Features
+- Object-oriented implementation of the chess board and pieces
+- Validation of moves according to the rules of chess
+- Ability to undo a move
+
+
+## Credits
+Code: Markel Vigo, Mehmet Demir
+
+
+
+
